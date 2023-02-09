@@ -6,6 +6,9 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, MaxValidator, UntypedFormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { SigninModel } from '../models/signIn.model';
 
 @Component({
   selector: 'app-auth-page',
@@ -14,15 +17,28 @@ import { Router } from '@angular/router';
 })
 export class AuthPageComponent implements OnInit {
 
-  constructor(private _router: Router) {}
-
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  
   }
+
+  form: UntypedFormGroup
+
+  constructor(private _router : Router, private _fb:FormBuilder, private _authService : AuthService) {
+    this.form = _fb.group({
+      email : new FormControl('test@gmail.com', Validators.required),
+      password : new FormControl('kloybjarj', Validators.required)
+    })
+  }
+
   @ViewChild('container') container: ElementRef;
 
-  signIn() {
-    this._router.navigate(['/homepage']);
+  async signIn() {
+    await this._authService.signin(new SigninModel(this.form.value.email, this.form.value.password)).toPromise().then((res: any) => {
+      console.log('login successfully', res)
+      if(res['data'].role==="USER"){
+        this._router.navigate(['/homepage'])
+      }
+    })
     this.container.nativeElement.classList.remove('right-panel-active');
   }
 

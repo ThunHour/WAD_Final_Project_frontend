@@ -10,13 +10,15 @@
     </form>
   </div>
   <div class="form-container sign-in-container">
-    <form action="#">
+    <!-- <form action="#" (ngSubmit)="signIn()"> -->
+      <form action="#" >
       <h1 class="mb-5">Login Existing Account</h1>
-      <input type="email" placeholder="Email" />
-      <input type="password" placeholder="Password" />
+      <input type="email" formControlName="email" placeholder="Email" />
+      <input type="password" formControlName="password" placeholder="Password" />
 
 
-      <button (click)="signUp()">Sign In</button>
+      <button type="button" (click)="signIn()">Sign In</button>
+
       <div class="d-flex flex-row">
         <p>Login Account with</p>
         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
