@@ -11,7 +11,4 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  numSequence(n: number): Array<number> {
-    return Array(n);
-  }
 }
