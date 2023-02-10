@@ -1,17 +1,17 @@
 <div class="container h-100 d-flex align-items-center justify-content-center" #container>
   <div class="form-container sign-up-container">
-    <form action="#">
+    <form action="#" [formGroup]="formGroup1">
       <h1>Register Account</h1>
-      <input type="text" placeholder="Name" />
-      <input type="email" placeholder="Email" />
-      <input type="email" placeholder="Email" />
-      <input type="password" placeholder="Password" />
-      <button >Sign Up</button>
+      <input type="email" placeholder="Email" formControlName="email"/>
+      <input type="text" placeholder="Name" formControlName="name"/>
+      <input type="password" placeholder="Password" formControlName="password"/>
+      <input type="number" placeholder="Phone Number" formControlName="phonenumber"/>
+      <button (click)="signUp()">Sign Up</button>
     </form>
   </div>
   <div class="form-container sign-in-container">
     <!-- <form action="#" (ngSubmit)="signIn()"> -->
-      <form action="#" >
+      <form action="#" [formGroup]="formGroup" >
       <h1 class="mb-5">Login Existing Account</h1>
       <input type="email" formControlName="email" placeholder="Email" />
       <input type="password" formControlName="password" placeholder="Password" />
@@ -21,7 +21,9 @@
 
       <div class="d-flex flex-row">
         <p>Login Account with</p>
-        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social ms-3" (click)="facebook()">
+          <img src="../../../assets/icons/facebook.svg" alt="?">
+        </a>
       </div>
       <p>Don’t have an account? <strong class=""> <a href="#">Sign up now</a></strong></p>
       <a href="#">Forgot your password?</a>

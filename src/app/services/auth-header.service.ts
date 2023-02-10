@@ -9,16 +9,17 @@ export class authHeader {
     // if (user && user.token) {
     //   return new HttpHeaders({Authorization: 'Bearer ' + user.token , 'Content-Type' : 'application/json'}) ;
     // } else {
-      // when loggin in
+    // when loggin in
     //   return  new HttpHeaders({'Content-Type' : 'application/json'}) ;
     // }
 
     return new HttpHeaders({
       Authorization:
         'Bearer ' +
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkWW1DTG5DcmhDUDczWTh0bDZleXdiZXpydENESk5vMG1pcm5sUGVmWmpES0hoYWhOL0c4clciLCJpZCI6Ijk2N2Y0OTllLWRlZmItNGRlYS05YzY3LTI5YzI2ZWY1YjQ4NyIsImlhdCI6MTY3NTk1MDAwNiwiZXhwIjoxNjc2MDM2NDA2fQ.FKZWmmLTL9yNH3ly5gLFLA-c9sNZsFnJW2bXP9LH39w',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkWW1DTG5DcmhDUDczWTh0bDZleXdiZXpydENESk5vMG1pcm5sUGVmWmpES0hoYWhOL0c4clciLCJpZCI6Ijk2N2Y0OTllLWRlZmItNGRlYS05YzY3LTI5YzI2ZWY1YjQ4NyIsImlhdCI6MTY3NjAzNzU1MiwiZXhwIjoxNjc2MTIzOTUyfQ.vQqSxP2fn1B99_P2BwXjfsNjqdmJxOtCE5Ua8hpooQw',
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Methods':'GET, POST, OPTIONS, PUT, PATCH, DELETE'
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+      'Access-Control-Allow-Origin': '*',
     });
   }
 }

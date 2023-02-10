@@ -61,17 +61,17 @@
                 <div class="col-lg-6">
                   <div class="row">
                     <div class="col-lg-3">
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/ram.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/cpu.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/gpu.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/ssd.png" class="img-fluid animated" alt="">
                       </div>
                     </div>
                     <div class="col-lg-8">
@@ -97,82 +97,24 @@
                 </div>
                 <div class="col-lg-6">
                   <div id="dialog-window">
-                    <h1>MOTHERBOARD (9)</h1>
+                    <h1>MOTHERBOARD ({{listMotherBoard.length}})</h1>
 
-                    <div id="scrollable-content">
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
+                    <div id="scrollable-content" *ngFor="let p of listMotherBoard">
+                      <div class="card mb-3 mt-3" style="max-width: 98%;" (click)="onSelectedMotherboard(p.id)">
                         <div class="row no-gutters">
                           <div class="col-lg-4">
-                            <img src="../../../assets/images/motherboard.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
+                            <img [src]="p.motherBoard[0].color.image[0].imageUrl" class="card-img-top" alt="..."
+                              style="object-fit:contain" />
                           </div>
                           <div class="col-lg-8">
                             <div class="card-body">
-                              <h5 class="card-title">Prime Z690-A</h5>
+                              <h5 class="card-title">{{p.motherBoard[0].model}}</h5>
                               <p class="card-text">Select</p>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/motherboard.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">Prime Z690-A</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/motherboard.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">Prime Z690-A</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/motherboard.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">Prime Z690-A</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/motherboard.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">Prime Z690-A</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
                     </div>
-
                     <div id="footer">
                       <button (click)="onNext()" class="btn button-content w-100">Next</button>
                     </div>
@@ -189,17 +131,17 @@
                 <div class="col-lg-6">
                   <div class="row">
                     <div class="col-lg-3">
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/ram.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/cpu.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/gpu.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/ssd.png" class="img-fluid animated" alt="">
                       </div>
                     </div>
                     <div class="col-lg-8">
@@ -225,67 +167,23 @@
                 </div>
                 <div class="col-lg-6">
                   <div id="dialog-window">
-                    <h1>CASE (5)</h1>
+                    <h1>CASE ({{relatedCase.length}})</h1>
 
-                    <div id="scrollable-content">
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
+                    <div id="scrollable-content" *ngFor="let p of relatedCase">
+                      <div class="card mb-3 mt-3" style="max-width: 98%;" (click)="onSelectedCase(p.id)">
                         <div class="row no-gutters">
                           <div class="col-lg-4">
-                            <img src="../../../assets/images/case.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
+                            <img [src]="p.color.image[0].imageUrl" class="card-img-top" alt="..."
+                              style="object-fit:contain" />
                           </div>
                           <div class="col-lg-8">
                             <div class="card-body">
-                              <h5 class="card-title">Atrix Tempered Glass Computer Case With RGB</h5>
+                              <h5 class="card-title">{{p.model}}</h5>
                               <p class="card-text">Select</p>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/case.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">Atrix Tempered Glass Computer Case With RGB</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/case.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">Atrix Tempered Glass Computer Case With RGB</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/case.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">Atrix Tempered Glass Computer Case With RGB</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-
                     </div>
 
                     <div id="footer">
@@ -304,17 +202,17 @@
                 <div class="col-lg-6">
                   <div class="row">
                     <div class="col-lg-3">
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/ram.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/cpu.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/gpu.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/ssd.png" class="img-fluid animated" alt="">
                       </div>
                     </div>
                     <div class="col-lg-8">
@@ -340,80 +238,23 @@
                 </div>
                 <div class="col-lg-6">
                   <div id="dialog-window">
-                    <h1>GPU (6)</h1>
+                    <h1>GPU ({{listGpu.length}})</h1>
 
-                    <div id="scrollable-content">
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
+                    <div id="scrollable-content" *ngFor="let p of listGpu">
+                      <div class="card mb-3 mt-3" style="max-width: 98%;" (click)="onSelectedGpu(p.gpu[0].id)">
                         <div class="row no-gutters">
                           <div class="col-lg-4">
-                            <img src="../../../assets/images/gpu.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
+                            <img [src]="p.gpu[0].color.image[0].imageUrl" class="card-img-top" alt="..."
+                              style="object-fit:contain" />
                           </div>
                           <div class="col-lg-8">
                             <div class="card-body">
-                              <h5 class="card-title">Nvidia RTX 3090</h5>
+                              <h5 class="card-title">{{p.gpu[0].model}}</h5>
                               <p class="card-text">Select</p>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/gpu.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">Nvidia RTX 3090</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/gpu.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">Nvidia RTX 3090</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/gpu.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">Nvidia RTX 3090</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/gpu.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">Nvidia RTX 3090</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
                     </div>
 
                     <div id="footer">
@@ -432,17 +273,17 @@
                 <div class="col-lg-6">
                   <div class="row">
                     <div class="col-lg-3">
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/ram.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/cpu.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/gpu.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/ssd.png" class="img-fluid animated" alt="">
                       </div>
                     </div>
                     <div class="col-lg-8">
@@ -468,80 +309,23 @@
                 </div>
                 <div class="col-lg-6">
                   <div id="dialog-window">
-                    <h1>POWERSUPPLY (4)</h1>
+                    <h1>POWERSUPPLY ({{listPowerSupply.length}})</h1>
 
-                    <div id="scrollable-content">
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
+                    <div id="scrollable-content" *ngFor="let p of listPowerSupply">
+                      <div class="card mb-3 mt-3" style="max-width: 98%;" (click)="onSelectedPowerSupply(p.powerSupply[0].id)">
                         <div class="row no-gutters">
                           <div class="col-lg-4">
-                            <img src="../../../assets/images/powersupply.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
+                            <img [src]="p.powerSupply[0].color.image[0].imageUrl" class="card-img-top" alt="..."
+                              style="object-fit:contain" />
                           </div>
                           <div class="col-lg-8">
                             <div class="card-body">
-                              <h5 class="card-title">ROG</h5>
+                              <h5 class="card-title">{{p.powerSupply[0].model}}</h5>
                               <p class="card-text">Select</p>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/powersupply.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">ROG</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/powersupply.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">ROG</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/powersupply.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">ROG</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/powersupply.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">ROG</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
                     </div>
 
                     <div id="footer">
@@ -562,17 +346,17 @@
                 <div class="col-lg-6">
                   <div class="row">
                     <div class="col-lg-3">
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/ram.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/cpu.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/gpu.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/ssd.png" class="img-fluid animated" alt="">
                       </div>
                     </div>
                     <div class="col-lg-8">
@@ -598,80 +382,23 @@
                 </div>
                 <div class="col-lg-6">
                   <div id="dialog-window">
-                    <h1>Storage (3)</h1>
+                    <h1>Storage ({{relatedStorage.length}})</h1>
 
-                    <div id="scrollable-content">
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
+                    <div id="scrollable-content" *ngFor="let p of relatedStorage">
+                      <div class="card mb-3 mt-3" style="max-width: 98%;" (click)="onSelectedStorage(p.id)">
                         <div class="row no-gutters">
                           <div class="col-lg-4">
-                            <img src="../../../assets/images/ssd.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
+                            <img [src]="p.color.image[0].imageUrl" class="card-img-top" alt="..."
+                              style="object-fit:contain" />
                           </div>
                           <div class="col-lg-8">
                             <div class="card-body">
-                              <h5 class="card-title">WD Blue PC SSD</h5>
+                              <h5 class="card-title">{{p.model}}</h5>
                               <p class="card-text">Select</p>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/ssd.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">WD Blue PC SSD</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/ssd.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">WD Blue PC SSD</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/ssd.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">WD Blue PC SSD</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/ssd.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">WD Blue PC SSD</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
                     </div>
 
                     <div id="footer">
@@ -691,17 +418,17 @@
                 <div class="col-lg-6">
                   <div class="row">
                     <div class="col-lg-3">
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/ram.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/cpu.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/gpu.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/ssd.png" class="img-fluid animated" alt="">
                       </div>
                     </div>
                     <div class="col-lg-8">
@@ -727,80 +454,23 @@
                 </div>
                 <div class="col-lg-6">
                   <div id="dialog-window">
-                    <h1>RAM (9)</h1>
+                    <h1>RAM ({{relatedRam.length}})</h1>
 
-                    <div id="scrollable-content">
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
+                    <div id="scrollable-content" *ngFor="let p of relatedRam">
+                      <div class="card mb-3 mt-3" style="max-width: 98%;" (click)="onSelectedRam(p.id)">
                         <div class="row no-gutters">
                           <div class="col-lg-4">
-                            <img src="../../../assets/images/ram.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
+                            <img [src]="p.color.image[0].imageUrl" class="card-img-top" alt="..."
+                              style="object-fit:contain" />
                           </div>
                           <div class="col-lg-8">
                             <div class="card-body">
-                              <h5 class="card-title">AITC DDR3 8GB 1600 DESKTOP RAM </h5>
+                              <h5 class="card-title">{{p.model}} </h5>
                               <p class="card-text">Select</p>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/ram.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">AITC DDR3 8GB 1600 DESKTOP RAM </h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/ram.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">AITC DDR3 8GB 1600 DESKTOP RAM </h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/ram.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">AITC DDR3 8GB 1600 DESKTOP RAM </h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/ram.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">AITC DDR3 8GB 1600 DESKTOP RAM </h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
                     </div>
 
                     <div id="footer">
@@ -819,17 +489,17 @@
                 <div class="col-lg-6">
                   <div class="row">
                     <div class="col-lg-3">
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/ram.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/cpu.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/gpu.png" class="img-fluid animated" alt="">
                       </div>
-                      <div class="icon-container mb-1">
-                        <i class="fa fa-check"></i>
+                      <div class="icon-container mb-2">
+                        <img src="../../../assets/images/ssd.png" class="img-fluid animated" alt="">
                       </div>
                     </div>
                     <div class="col-lg-8">
@@ -855,87 +525,44 @@
                 </div>
                 <div class="col-lg-6">
                   <div id="dialog-window">
-                    <h1>CPU (9)</h1>
+                    <h1>CPU ({{relatedCpu.length}})</h1>
 
-                    <div id="scrollable-content">
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
+                    <div id="scrollable-content" *ngFor="let p of relatedCpu">
+                      <div class="card mb-3 mt-3" style="max-width: 98%;" (click)="onSelectedCpu(p.id)">
                         <div class="row no-gutters">
                           <div class="col-lg-4">
-                            <img src="../../../assets/images/cpu.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
+                            <img [src]="p.color.image[0].imageUrl" class="card-img-top" alt="..."
+                              style="object-fit:contain" />
                           </div>
                           <div class="col-lg-8">
                             <div class="card-body">
-                              <h5 class="card-title">AMD Ryzen 3</h5>
+                              <h5 class="card-title">{{p.model}}</h5>
                               <p class="card-text">Select</p>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/cpu.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">AMD Ryzen 3</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/cpu.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">AMD Ryzen 3</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/cpu.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">AMD Ryzen 3</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3 mt-3" style="max-width: 98%;">
-                        <div class="row no-gutters">
-                          <div class="col-lg-4">
-                            <img src="../../../assets/images/cpu.png" class="card-img" alt="..." height="100px"
-                              style="object-fit:contain">
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h5 class="card-title">AMD Ryzen 3</h5>
-                              <p class="card-text">Select</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
                     </div>
 
                     <div id="footer">
-                      <button (click)="onNext()" class="btn button-content w-100">Submit</button>
+                      <p-dialog header="Sucess!" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+                        [draggable]="false" [resizable]="false">
+                        <p class="m-0">
+                          Congratulations, your desktop has been successfully customized!
+                        </p>
+                        <ng-template pTemplate="footer">
+                          <p-button icon="pi pi-check" (click)="displayModal=false; onBackHome()" label="Next"
+                            styleClass="p-button-text"></p-button>
+                        </ng-template>
+                      </p-dialog>
+                      <button type="button" (click)="showModalDialog(); submitPc()" class="btn button-content w-100">Submit</button>
+
                     </div>
+
                   </div>
                 </div>
+
+
               </div>
             </div>
           </div>
