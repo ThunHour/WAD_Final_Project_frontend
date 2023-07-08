@@ -3,9 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { authHeader } from './auth-header.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable()
 export class StorageService {
 
   constructor(private http: HttpClient, private _authHeader: authHeader) { }
@@ -17,7 +16,7 @@ export class StorageService {
     let httpOptions = {
       headers: this._authHeader.authheader()
     }
-    return  this.http.get('http://localhost:3000/storage/getAllStorage', httpOptions)
+    return this.http.get(`http://localhost:3030/storage/getAllStorage`, httpOptions)
 
 
   }

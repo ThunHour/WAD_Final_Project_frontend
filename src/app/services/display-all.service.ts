@@ -9,9 +9,8 @@ import { StorageModel } from '../models/storage.model';
 import { RamModel } from '../models/ram.model';
 import { CpuModel } from '../models/cpu.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable()
 export class DisplayAllService {
 
   constructor(private http: HttpClient, private _authHeader: authHeader) { }
@@ -23,7 +22,7 @@ export class DisplayAllService {
     let httpOptions = {
       headers: this._authHeader.authheader()
     }
-    return  this.http.get('http://localhost:3000/motherBoard/getAllMotherBoard', httpOptions)
+    return this.http.get(`http://localhost:3030/motherBoard/getAllMotherBoard`, httpOptions)
   }
 
   cases: CaseModel[] = []
@@ -33,7 +32,7 @@ export class DisplayAllService {
     let httpOptions = {
       headers: this._authHeader.authheader()
     }
-    return  this.http.get('http://localhost:3000/case/getAllCase', httpOptions)
+    return this.http.get(`http://localhost:3030/case/getAllCase`, httpOptions)
   }
 
   gpus: GpuModel[] = []
@@ -43,7 +42,7 @@ export class DisplayAllService {
     let httpOptions = {
       headers: this._authHeader.authheader()
     }
-    return  this.http.get('http://localhost:3000/gpu/getAllGpu', httpOptions)
+    return this.http.get(`http://localhost:3030/gpu/getAllGpu`, httpOptions)
   }
 
   powerSupplies: PowerSupplyModel[] = []
@@ -53,7 +52,7 @@ export class DisplayAllService {
     let httpOptions = {
       headers: this._authHeader.authheader()
     }
-    return  this.http.get('http://localhost:3000/powerSupply/getAllPowerSupply', httpOptions)
+    return this.http.get(`http://localhost:3030/powerSupply/getAllPowerSupply`, httpOptions)
   }
 
   storages: StorageModel[] = []
@@ -63,7 +62,7 @@ export class DisplayAllService {
     let httpOptions = {
       headers: this._authHeader.authheader()
     }
-    return  this.http.get('http://localhost:3000/storage/getAllStorage', httpOptions)
+    return this.http.get(`http://localhost:3030/storage/getAllStorage`, httpOptions)
   }
 
   rams: RamModel[] = []
@@ -73,7 +72,7 @@ export class DisplayAllService {
     let httpOptions = {
       headers: this._authHeader.authheader()
     }
-    return  this.http.get('http://localhost:3000/ram/getAllRam', httpOptions)
+    return this.http.get(`http://localhost:3030/ram/getAllRam`, httpOptions)
   }
 
   cpus: CpuModel[] = []
@@ -83,7 +82,7 @@ export class DisplayAllService {
     let httpOptions = {
       headers: this._authHeader.authheader()
     }
-    return  this.http.get('http://localhost:3000/cpu/getAllCpu', httpOptions)
+    return this.http.get(`http://localhost:3030/cpu/getAllCpu`, httpOptions)
 
 
   }

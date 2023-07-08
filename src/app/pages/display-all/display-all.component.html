@@ -3,7 +3,9 @@
   <owl-carousel-o [options]="customOptions">
     <ng-template carouselSlide *ngFor="let p of listMotherBoard">
       <div class="card">
-        <img [src]="p.motherBoard[0].color.image[0].imageUrl" class="card-img-top" alt="...">
+
+        <img [src]="p.motherBoard[0].color.image[0].imageUrl" class="card-img-top " style="object-fit: contain; "
+          alt="...">
         <div class="card-body">
           <h6 class="card-title">MotherBoard Name : {{p.motherBoard[0].model}}</h6>
           <h6 style="color:#FF4C29">{{p.motherBoard[0].price}} $</h6>

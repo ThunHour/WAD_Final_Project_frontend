@@ -3,12 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { authHeader } from './auth-header.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable()
 export class CpuService {
 
-  constructor(private http: HttpClient, private _authHeader: authHeader) { }
+  constructor(private http: HttpClient, private _authHeader: authHeader ) { }
 
   cpus: CpuModel[] = []
 
@@ -17,7 +16,7 @@ export class CpuService {
     let httpOptions = {
       headers: this._authHeader.authheader()
     }
-    return  this.http.get('http://localhost:3000/cpu/getAllCpu', httpOptions)
+    return  this.http.get(`http://localhost:3030/cpu/getAllCpu`, httpOptions)
 
 
   }

@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { authHeader } from './auth-header.service';
 import { MotherBoardModel } from '../models/motherboard.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable()
 export class CreateService {
 
-  constructor(private http: HttpClient, private _authHeader: authHeader) { }
+  constructor(private http: HttpClient, private _authHeader: authHeader,
+
+  ) { }
 
   motherBoards: MotherBoardModel[] = []
   motherBoard: any
@@ -17,22 +18,22 @@ export class CreateService {
     let httpOptions = {
       headers: this._authHeader.authheader()
     }
-    return  this.http.get('http://localhost:3000/motherBoard/getAllMotherBoard', httpOptions)
+    return this.http.get(`http://localhost:3030/motherBoard/getAllMotherBoard`, httpOptions)
   }
 
-  async getMotherBoardById(id:string) {
+  async getMotherBoardById(id: string) {
     this.motherBoard = []
     let httpOptions = {
       headers: this._authHeader.authheader()
     }
-    return  this.http.get('http://localhost:3000/motherboard/getMotherBoardById/'+ id, httpOptions)
+    return this.http.get(`http://localhost:3030/motherboard/getMotherBoardById/` + id, httpOptions)
   }
 
-  async createCustomized(pc:any) {
+  async createCustomized(pc: any) {
     let httpOptions = {
       headers: this._authHeader.authheader()
     }
-    return  this.http.post('http://localhost:3000/customize/create', pc, httpOptions)
+    return this.http.post(`http://localhost:3030/customize/create`, pc, httpOptions)
   }
 
 }

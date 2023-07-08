@@ -99,8 +99,8 @@
                   <div id="dialog-window">
                     <h1>MOTHERBOARD ({{listMotherBoard.length}})</h1>
 
-                    <div id="scrollable-content" *ngFor="let p of listMotherBoard">
-                      <div class="card mb-3 mt-3" style="max-width: 98%;" (click)="onSelectedMotherboard(p.id)">
+                    <div id="scrollable-content" >
+                      <div class="card mb-3 mt-3" style="max-width: 98%;" *ngFor="let p of listMotherBoard" (click)="onSelectedMotherboard(p.id)">
                         <div class="row no-gutters">
                           <div class="col-lg-4">
                             <img [src]="p.motherBoard[0].color.image[0].imageUrl" class="card-img-top" alt="..."
@@ -169,8 +169,8 @@
                   <div id="dialog-window">
                     <h1>CASE ({{relatedCase.length}})</h1>
 
-                    <div id="scrollable-content" *ngFor="let p of relatedCase">
-                      <div class="card mb-3 mt-3" style="max-width: 98%;" (click)="onSelectedCase(p.id)">
+                    <div id="scrollable-content" >
+                      <div class="card mb-3 mt-3" style="max-width: 98%;" *ngFor="let p of relatedCase" (click)="onSelectedCase(p.id)">
                         <div class="row no-gutters">
                           <div class="col-lg-4">
                             <img [src]="p.color.image[0].imageUrl" class="card-img-top" alt="..."
@@ -240,8 +240,8 @@
                   <div id="dialog-window">
                     <h1>GPU ({{listGpu.length}})</h1>
 
-                    <div id="scrollable-content" *ngFor="let p of listGpu">
-                      <div class="card mb-3 mt-3" style="max-width: 98%;" (click)="onSelectedGpu(p.gpu[0].id)">
+                    <div id="scrollable-content" >
+                      <div class="card mb-3 mt-3" style="max-width: 98%;" *ngFor="let p of listGpu" (click)="onSelectedGpu(p.gpu[0].id)">
                         <div class="row no-gutters">
                           <div class="col-lg-4">
                             <img [src]="p.gpu[0].color.image[0].imageUrl" class="card-img-top" alt="..."
@@ -311,8 +311,8 @@
                   <div id="dialog-window">
                     <h1>POWERSUPPLY ({{listPowerSupply.length}})</h1>
 
-                    <div id="scrollable-content" *ngFor="let p of listPowerSupply">
-                      <div class="card mb-3 mt-3" style="max-width: 98%;" (click)="onSelectedPowerSupply(p.powerSupply[0].id)">
+                    <div id="scrollable-content" >
+                      <div class="card mb-3 mt-3" style="max-width: 98%;" *ngFor="let p of listPowerSupply" (click)="onSelectedPowerSupply(p.powerSupply[0].id)">
                         <div class="row no-gutters">
                           <div class="col-lg-4">
                             <img [src]="p.powerSupply[0].color.image[0].imageUrl" class="card-img-top" alt="..."
@@ -384,8 +384,8 @@
                   <div id="dialog-window">
                     <h1>Storage ({{relatedStorage.length}})</h1>
 
-                    <div id="scrollable-content" *ngFor="let p of relatedStorage">
-                      <div class="card mb-3 mt-3" style="max-width: 98%;" (click)="onSelectedStorage(p.id)">
+                    <div id="scrollable-content" >
+                      <div class="card mb-3 mt-3" style="max-width: 98%;" *ngFor="let p of relatedStorage" (click)="onSelectedStorage(p.id)">
                         <div class="row no-gutters">
                           <div class="col-lg-4">
                             <img [src]="p.color.image[0].imageUrl" class="card-img-top" alt="..."
@@ -456,8 +456,8 @@
                   <div id="dialog-window">
                     <h1>RAM ({{relatedRam.length}})</h1>
 
-                    <div id="scrollable-content" *ngFor="let p of relatedRam">
-                      <div class="card mb-3 mt-3" style="max-width: 98%;" (click)="onSelectedRam(p.id)">
+                    <div id="scrollable-content" >
+                      <div class="card mb-3 mt-3" style="max-width: 98%;" *ngFor="let p of relatedRam" (click)="onSelectedRam(p.id)">
                         <div class="row no-gutters">
                           <div class="col-lg-4">
                             <img [src]="p.color.image[0].imageUrl" class="card-img-top" alt="..."
@@ -527,8 +527,8 @@
                   <div id="dialog-window">
                     <h1>CPU ({{relatedCpu.length}})</h1>
 
-                    <div id="scrollable-content" *ngFor="let p of relatedCpu">
-                      <div class="card mb-3 mt-3" style="max-width: 98%;" (click)="onSelectedCpu(p.id)">
+                    <div id="scrollable-content" >
+                      <div class="card mb-3 mt-3" style="max-width: 98%;" *ngFor="let p of relatedCpu" (click)="onSelectedCpu(p.id)">
                         <div class="row no-gutters">
                           <div class="col-lg-4">
                             <img [src]="p.color.image[0].imageUrl" class="card-img-top" alt="..."

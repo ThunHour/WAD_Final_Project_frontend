@@ -34,10 +34,13 @@ export class AuthPageComponent implements OnInit {
     private _router: Router,
     private _fb: FormBuilder,
     private _authService: AuthServiceFromServer,
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.initForm();
     this.initForm1();
+    if (localStorage.getItem('token')) {
+      this._router.navigate(['/homepage']);
+    }
 
   }
   initForm() {
@@ -71,7 +74,7 @@ export class AuthPageComponent implements OnInit {
         .then((res: any) => {
           console.log('login successfully', res);
           if (res['data'].role === 'USER') {
-            localStorage.setItem('token', res['data'].token);
+            localStorage.setItem('token', res.accessToken);
             this._router.navigate(['/homepage']);
           }
         });
@@ -84,7 +87,7 @@ export class AuthPageComponent implements OnInit {
 
   async signUp() {
     if (this.formGroup1.valid) {
-      await this._authService
+      this._authService
         .signUp(
           new SignupModel(
             this.formGroup1.value.email,
@@ -93,19 +96,20 @@ export class AuthPageComponent implements OnInit {
             this.formGroup1.value.password
           )
         )
-        .toPromise()
-        .then((res: any) => {
-          try {
-            if (res['data'].role === 'USER') {
-              console.log('signup successfully', res);
+        .toPromise().then(
+          (res: any) => {
+            try {
+              if (res['data'].role === 'USER') {
+                console.log('signup successfully', res);
 
-              window.location.reload();
+                window.location.reload();
+              }
+            } catch (error) {
+              console.log("User already exist");
             }
-          } catch (error) {
-            console.log("User already exist");
           }
+        )
 
-        });
     }
     this.container.nativeElement.classList.add('right-panel-active');
   }
