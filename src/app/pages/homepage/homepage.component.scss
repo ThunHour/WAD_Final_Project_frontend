@@ -4,6 +4,16 @@
   background: #222222;
 }
 
+#customize-btn {
+  background-color: #fe8222;
+  color: white;
+  border: none;
+}
+
+#customize-btn:hover {
+  transform: translate3D(0, -1px, 0) scale(1.03);
+  border: white 1px solid;
+}
 
 #hero h1 {
   margin: 0 0 10px 0;
@@ -130,4 +140,3 @@
   border: none;
 
 }
-

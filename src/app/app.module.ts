@@ -9,17 +9,15 @@ import { GpuService } from './services/gpu.service';
 import { MotherboardService } from './services/motherboard.service';
 import { authHeader } from './services/auth-header.service';
 import { AuthServiceFromServer } from './services/auth.service';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { AuthPageComponent } from './auth-page/auth-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
-import { MotherboardPageComponent } from './pages/motherboard-page/motherboard-page.component';
+import { CustomizeComponent } from './pages/customize/customize.component';
 import { ComponentPageComponent } from './pages/component-page/component-page.component';
 import { TabViewModule } from 'primeng/tabview';
 import { CarouselModule } from 'ngx-owl-carousel-o';
@@ -37,14 +35,42 @@ import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { HistoryComponent } from './pages/history/history.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateService } from './services/create.service';
+import {
+  SocialAuthServiceConfig,
+} from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { BrowserModule } from '@angular/platform-browser';
+import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
+import { ItemDetailComponent } from './pages/item-detail/item-detail.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { CommunityComponent } from './pages/community/community.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { ToastrModule } from 'ngx-toastr';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
+import { provideToastr } from 'ngx-toastr';
+
+import { HistoryDetailComponent } from './pages/history-detail/history-detail.component';
+import { CommunityDetailComponent } from './pages/community-detail/community-detail.component';
+import { EditCustomizeComponent } from './pages/edit-customize/edit-customize.component';
+import { GlobalErrorService } from './services/global-error.service';
+import { PartnerComponent } from './components/partner/partner.component';
+import { PartnerService } from './services/partner.service';
 
 const appRoutes: Routes = [
   { path: '', component: AuthPageComponent },
   { path: 'homepage', component: HomepageComponent, canActivate: [AuthGuardGuard] },
-  { path: 'motherboard', component: MotherboardPageComponent, canActivate: [AuthGuardGuard] },
+  { path: 'customize', component: CustomizeComponent, canActivate: [AuthGuardGuard] },
+  { path: 'customize/:id', component: EditCustomizeComponent, canActivate: [AuthGuardGuard] },
+  { path: 'community/detail/:id', component: CommunityDetailComponent, canActivate: [AuthGuardGuard] },
   { path: 'component', component: ComponentPageComponent, canActivate: [AuthGuardGuard] },
+  { path: 'component/:id/:type', component: ItemDetailComponent, canActivate: [AuthGuardGuard] },
   { path: 'history', component: HistoryComponent, canActivate: [AuthGuardGuard] },
+  { path: 'history/detail/:id', component: HistoryDetailComponent, canActivate: [AuthGuardGuard] },
+
+  { path: 'community', component: CommunityComponent, canActivate: [AuthGuardGuard] },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
@@ -54,7 +80,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     FooterComponent,
     HomepageComponent,
-    MotherboardPageComponent,
+    CustomizeComponent,
     ComponentPageComponent,
     DisplayAllComponent,
     DisplayRamComponent,
@@ -65,6 +91,14 @@ const appRoutes: Routes = [
     DisplayStorageComponent,
     DisplayCPUComponent,
     HistoryComponent,
+    ItemDetailComponent,
+    PageNotFoundComponent,
+    CommunityComponent,
+    LoadingComponent,
+    HistoryDetailComponent,
+    CommunityDetailComponent,
+    EditCustomizeComponent,
+    PartnerComponent
   ],
   imports: [
     BrowserModule,
@@ -77,8 +111,12 @@ const appRoutes: Routes = [
     ButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    GoogleSigninButtonModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
+    provideAnimations(), // required animations providers
+    provideToastr(), // Toastr providers,
     authHeader,
     AuthServiceFromServer,
     MotherboardService,
@@ -90,7 +128,24 @@ const appRoutes: Routes = [
     CpuService,
     DisplayAllService,
     CustomizedService,
+    PartnerService,
+    CreateService,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('663990587528-hmu2scpu3t5m3eablhkmb62uq57r1i8c.apps.googleusercontent.com')
+          }
+        ],
+        onError: (err) => { console.error(err); }
+      } as SocialAuthServiceConfig,
+    },
+    { provide: ErrorHandler, useClass: GlobalErrorService },
+
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

@@ -20,4 +20,10 @@ export class StorageService {
 
 
   }
+  async getStorageById(id:string){
+    let httpOptions = {
+      headers: this._authHeader.authheader()
+    }
+    return  this.http.get(`http://localhost:3030/storage/getStorageById/${id}`, httpOptions)
+  }
 }

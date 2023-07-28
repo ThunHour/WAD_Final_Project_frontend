@@ -29,8 +29,16 @@ export class AuthServiceFromServer {
     }
     return this.http.post(`http://localhost:3030/auth/signup`, { email: signupModel.email, name: signupModel.name, password: signupModel.password, phonenumber: signupModel.phonenumber }, httpOptions)
   }
+  signOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('name');
+    localStorage.removeItem('refreshToken');
+    localStorage.removeItem('username');
+    this._router.navigate(['/']);
+  }
 
   facebook() {
     return this.http.get(`http://localhost:3030/google`)
   }
+
 }

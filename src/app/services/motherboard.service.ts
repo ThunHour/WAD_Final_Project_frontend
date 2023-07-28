@@ -16,9 +16,15 @@ export class MotherboardService {
     let httpOptions = {
       headers: this._authHeader.authheader()
     }
-    return  this.http.get(`http://localhost:3030/motherBoard/getAllMotherBoard`, httpOptions)
+    return this.http.get(`http://localhost:3030/motherBoard/getAllMotherBoard`, httpOptions)
 
 
+  }
+  async getMotherBoardById(id: string) {
+    let httpOptions = {
+      headers: this._authHeader.authheader()
+    }
+    return this.http.get(`http://localhost:3030/motherBoard/getMotherBoardById/${id}`, httpOptions)
   }
 }
 

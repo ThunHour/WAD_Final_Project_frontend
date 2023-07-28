@@ -1,5 +1,6 @@
 import { StorageService } from './../../services/storage.service';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-storage',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./display-storage.component.scss']
 })
 export class DisplayStorageComponent {
-  constructor(private _storageService: StorageService) {}
+  constructor(private _storageService: StorageService,private router: Router) {}
   listStorage: any[] = [];
 
   async ngOnInit() {
@@ -16,5 +17,8 @@ export class DisplayStorageComponent {
         this.listStorage = data.data;
       }
     );
+  }
+  goToDetail(id: string) {
+    this.router.navigate(['/component', id, 'storage']);
   }
 }

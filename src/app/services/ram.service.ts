@@ -20,4 +20,10 @@ export class RamService {
 
 
   }
+  async getRamById(id:string){
+    let httpOptions = {
+      headers: this._authHeader.authheader()
+    }
+    return  this.http.get(`http://localhost:3030/ram/getRamById/${id}`, httpOptions)
+  }
 }

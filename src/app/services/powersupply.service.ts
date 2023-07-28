@@ -20,4 +20,10 @@ export class PowersupplyService {
 
 
   }
+  async getPowerSupplyById(id:string){
+    let httpOptions = {
+      headers: this._authHeader.authheader()
+    }
+    return  this.http.get(`http://localhost:3030/powerSupply/getPowerSupplyById/${id}`, httpOptions)
+  }
 }

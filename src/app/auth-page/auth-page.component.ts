@@ -15,14 +15,17 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthServiceFromServer } from '../services/auth.service';
-import { SocialUser, GoogleLoginProvider } from 'angularx-social-login';
+
 import { SigninModel } from '../models/signIn.model';
 import { SignupModel } from '../models/signUp.model';
+
+import { SocialAuthService, GoogleLoginProvider, SocialUser } from '@abacritt/angularx-social-login';
 @Component({
   selector: 'app-auth-page',
   templateUrl: './auth-page.component.html',
   styleUrls: ['./auth-page.component.scss'],
 })
+
 export class AuthPageComponent implements OnInit {
 
 
@@ -30,18 +33,25 @@ export class AuthPageComponent implements OnInit {
   formGroup1: FormGroup;
   user: SocialUser;
 
+  loggedIn: boolean;
   constructor(
     private _router: Router,
     private _fb: FormBuilder,
     private _authService: AuthServiceFromServer,
+    private socialAuthService: SocialAuthService
   ) { }
   ngOnInit(): void {
     this.initForm();
     this.initForm1();
-    if (localStorage.getItem('token')) {
-      this._router.navigate(['/homepage']);
-    }
-
+    // if (localStorage.getItem('token')) {
+    //   this._router.navigate(['/homepage']);
+    // }
+    // this.socialAuthService.authState.subscribe((user) => {
+    //   this.user = user;
+    //   this.loggedIn = (user != null);
+    //   console.log(this.user)
+    // });
+    this.handleRedirectedRoute();
   }
   initForm() {
     this.formGroup = new FormGroup({
@@ -72,9 +82,11 @@ export class AuthPageComponent implements OnInit {
         )
         .toPromise()
         .then((res: any) => {
-          console.log('login successfully', res);
+
           if (res['data'].role === 'USER') {
             localStorage.setItem('token', res.accessToken);
+            localStorage.setItem('name', res.data.name);
+            localStorage.setItem('refreshToken', res.refreshToken);
             this._router.navigate(['/homepage']);
           }
         });
@@ -100,9 +112,11 @@ export class AuthPageComponent implements OnInit {
           (res: any) => {
             try {
               if (res['data'].role === 'USER') {
-                console.log('signup successfully', res);
+                localStorage.setItem('token', res.accessToken);
+                localStorage.setItem('name', res.data.name);
+                localStorage.setItem('refreshToken', res.refreshToken);
+                this._router.navigate(['/homepage']);
 
-                window.location.reload();
               }
             } catch (error) {
               console.log("User already exist");
@@ -115,5 +129,33 @@ export class AuthPageComponent implements OnInit {
   }
   facebook() {
     return this._authService.facebook();
+  }
+  signInWithGoogle(): void {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then
+      (user => {
+        this.user = user;
+        console.log(user);
+        console.log(this.user);
+
+      }).catch(
+        error =>
+          console.log(error)
+      );
+  }
+  handleRedirectedRoute() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+    if (token) {
+      // Store the token in local storage
+      localStorage.setItem('token', token);
+
+      // Redirect to the home page or any other protected route
+      this._router.navigate(['/homepage']);
+    }else{
+      this._router.navigate(['/']);
+    }
+  }
+  google() {
+    window.location.href = "http://locahost:3030/google"
   }
 }

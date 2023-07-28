@@ -17,7 +17,11 @@ export class CpuService {
       headers: this._authHeader.authheader()
     }
     return  this.http.get(`http://localhost:3030/cpu/getAllCpu`, httpOptions)
-
-
+  }
+  async getCpuById(id:string){
+    let httpOptions = {
+      headers: this._authHeader.authheader()
+    }
+    return  this.http.get(`http://localhost:3030/cpu/getCpuById/${id}`, httpOptions)
   }
 }

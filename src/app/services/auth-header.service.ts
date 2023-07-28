@@ -7,15 +7,7 @@ export class authHeader {
 
   ) { }
   authheader(): HttpHeaders {
-    // let user = this.localStore.getData(key);
-    // if (user && user.token) {
-    //   return new HttpHeaders({Authorization: 'Bearer ' + user.token , 'Content-Type' : 'application/json'}) ;
-    // } else {
-    // // when loggin in
-    //   return  new HttpHeaders({'Content-Type' : 'application/json'}) ;
-    // }
     const token = localStorage.getItem('token');
-
     return new HttpHeaders({
       Authorization:
         'Bearer ' +

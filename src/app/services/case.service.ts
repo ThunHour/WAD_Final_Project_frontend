@@ -16,8 +16,14 @@ export class CaseService {
     let httpOptions = {
       headers: this._authHeader.authheader()
     }
-    return  this.http.get(`http://localhost:3030/case/getAllCase`, httpOptions)
+    return this.http.get(`http://localhost:3030/case/getAllCase`, httpOptions)
 
 
+  }
+  async getCaseById(id: string) {
+    let httpOptions = {
+      headers: this._authHeader.authheader()
+    }
+    return this.http.get(`http://localhost:3030/case/getCaseById/${id}`, httpOptions)
   }
 }

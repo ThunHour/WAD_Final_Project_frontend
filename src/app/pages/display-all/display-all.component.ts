@@ -6,6 +6,7 @@ import { MotherboardService } from 'src/app/services/motherboard.service';
 import { PowersupplyService } from 'src/app/services/powersupply.service';
 import { RamService } from 'src/app/services/ram.service';
 import { StorageService } from 'src/app/services/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-all',
@@ -20,8 +21,9 @@ export class DisplayAllComponent {
     private _powersupplyService: PowersupplyService,
     private _storageService: StorageService,
     private _ramService: RamService,
-    private _cpuService: CpuService
-  ) {}
+    private _cpuService: CpuService,
+    private router: Router
+  ) { }
 
   listMotherBoard: any[] = [];
   listCase: any[] = [];
@@ -30,8 +32,10 @@ export class DisplayAllComponent {
   listStorage: any[] = [];
   listRam: any[] = [];
   listCpu: any[] = [];
+  isLoading: boolean = false;
 
   async ngOnInit() {
+    this.isLoading = true;
     (await this._motherBoardService.getAllMotherBoards()).subscribe(
       (data: any) => {
         this.listMotherBoard = data.data;
@@ -60,19 +64,16 @@ export class DisplayAllComponent {
       this.listCpu = data.data;
       console.log(this.listCpu[0].gpu[0]);
     });
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 100);
   }
 
   customOptions: any = {
-    loop: true,
+    loop: false,
     mouseDrag: true,
-    touchDrag: false,
+    touchDrag: true,
     pullDrag: false,
-    dots: false,
-    navSpeed: 100,
-    navText: [
-      '<i class="fa-solid fa-caret-left"></i>',
-      '<i class="fa-solid fa-caret-right"></i>',
-    ],
     responsive: {
       0: {
         items: 1,
@@ -87,6 +88,10 @@ export class DisplayAllComponent {
         items: 4,
       },
     },
-    nav: true,
+
   };
+  goDetail(id: string, type: string) {
+    this.router.navigate(['/component', id, type]);
+  }
+
 }

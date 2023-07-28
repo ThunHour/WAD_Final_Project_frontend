@@ -5,11 +5,12 @@
         data-aos-delay="200">
         <h1>Customize Your Dream PC With Us</h1>
         <div class="d-flex justify-content-center justify-content-lg-start">
-          <button type="button" class="btn btn-light">Start your Design</button>
+          <button id="customize-btn" [routerLink]="'/customize'" type="button" class="btn btn-light">Start your
+            Design</button>
         </div>
 
       </div>
-      <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+      <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
         <img src="../../../assets/images/heroImg.png" class="img-fluid animated" alt="">
       </div>
     </div>
@@ -31,7 +32,7 @@
             <img src="../../../assets/icons/desktop.svg" alt="?">
           </div>
           <div class="text-center">
-            <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+            <p class="mt-4">Think your dream PC</p>
           </div>
         </div>
       </div>
@@ -44,10 +45,10 @@
             <h6>Step 1</h6>
           </div>
           <div class="icon-container mb-2 mt-3">
-            <img src="../../../assets/icons/setting.svg" alt="?" >
+            <img src="../../../assets/icons/setting.svg" alt="?">
           </div>
           <div class="text-center">
-            <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+            <p class="mt-4">Start your design</p>
           </div>
         </div>
       </div>
@@ -63,12 +64,12 @@
             <img src="../../../assets/icons/tick.svg" alt="?">
           </div>
           <div class="text-center">
-            <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+            <p class="mt-4">Save your time</p>
           </div>
         </div>
       </div>
       <div class="col-lg-1 mt-5">
-        <img src="../../../assets/icons/arrow.svg" alt="?"class="mt-3 ms-3">
+        <img src="../../../assets/icons/arrow.svg" alt="?" class="mt-3 ms-3">
       </div>
       <div class="col-lg-2  d-flex justify-content-center step">
         <div>
@@ -79,7 +80,7 @@
             <img src="../../../assets/icons/wrench.svg" alt="?">
           </div>
           <div class="text-center">
-            <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+            <p class="mt-4">Done your design</p>
           </div>
         </div>
       </div>
@@ -90,45 +91,24 @@
     <h1 class="ps-5">PC Models</h1>
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 mt-5 d-flex justify-content-center">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="../../../assets/images/heroImg.png" alt="Card image cap">
+        <div class="col-lg-4 mt-5 d-flex justify-content-center" *ngFor="let i of items">
+          <div class="card" style="width: 18rem; padding: 20px">
+            <img class="card-img-top" src={{i.case.color.image[0].imageUrl}} alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title text-center">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <div class="d-flex justify-content-center btnn"><a href="#" class="btn btn-outline-warning ">Go
-                  somewhere</a></div>
+              <h5 class="card-title text-center">Custom By {{i.user.name}}</h5>
+              <p class="card-text">Are your looking for a new PC build ?</p>
+              <div class="d-flex justify-content-center btnn" (click)="viewDetail(i.id)"><a
+                  class="btn btn-outline-warning ">View
+                  Detail</a></div>
             </div>
           </div>
         </div>
-        <div class="col-lg-4 mt-5 d-flex justify-content-center">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="../../../assets/images/heroImg.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title text-center">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <div class="d-flex justify-content-center btnn"><a href="#" class="btn btn-outline-warning ">Go
-                  somewhere</a></div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 mt-5 d-flex justify-content-center">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="../../../assets/images/heroImg.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title text-center">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <div class="d-flex justify-content-center btnn"><a href="#" class="btn btn-outline-warning ">Go
-                  somewhere</a></div>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>
 </section>
 
-<div class="mt-5"><app-footer></app-footer></div>
+<div class="mt-5">
+  <app-footer></app-footer>
+</div>

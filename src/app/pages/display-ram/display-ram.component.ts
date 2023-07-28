@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RamService } from 'src/app/services/ram.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-ram',
@@ -7,7 +8,7 @@ import { RamService } from 'src/app/services/ram.service';
   styleUrls: ['./display-ram.component.scss']
 })
 export class DisplayRamComponent {
-  constructor(private _ramService: RamService) {}
+  constructor(private _ramService: RamService,private router: Router) {}
   listRam: any[] = [];
 
   async ngOnInit() {
@@ -16,5 +17,8 @@ export class DisplayRamComponent {
         this.listRam = data.data;
       }
     );
+  }
+  goToDetail(id: string) {
+    this.router.navigate(['/component', id, 'ram']);
   }
 }
